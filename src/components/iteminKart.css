@@ -1,0 +1,31 @@
+.item-in-kart {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    border: 1px solid wheat;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 0 15px 0 2px
+}
+
+.item-in-kart:hover {
+    border:1px solid blue;
+}
+
+.item-in-kart img {
+    flex: 1;
+    height: 120px;
+}
+
+.item-in-kart label {
+    flex: 2;
+}
+
+.item-in-kart .item-info {
+    flex: 4;
+}
+
+.item-in-cart button {
+    flex: 1;
+}

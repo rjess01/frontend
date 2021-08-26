@@ -1,4 +1,7 @@
+import axios from "axios";
+
 var catalog = [
+
   {
     _id: "Mari",
     title: "Peach Cresendo",
@@ -33,12 +36,13 @@ class ItemService {
     getCatalog() {
       //  put logice to call server
       // and get an array of products
-
+    axios.get('http://127.0.0.1:5000/api/catalog')
       // return mock data
       return catalog;
     }
 
     saveItem(item) {
+      console.log("ToDo: send object to server");
   }
 
     getItemDetails(id) {

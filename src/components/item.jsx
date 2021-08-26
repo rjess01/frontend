@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import QuantityPicker from './quantityPicker';
 
 import './item.css';
+import storeContext from '../store/storecontext';
 
 
 class Item extends Component {
+    static contextType = storeContext;
     state = { 
         quantity : 1
-     }
+     };
     render() { 
         return ( 
             <div className="Item">
-                <img src={"/images/products/" + this.props.data.image} alt="product"></img>
-            
+                <img src={"/images/products/" + this.props.data.image} alt="product"></img>            
 
             <h5>{this.props.data.title}</h5>
             
@@ -22,22 +23,33 @@ class Item extends Component {
             <div className="item-controls">
                 <QuantityPicker onChange={this.handleQuantityChange}></QuantityPicker>
 
-                <button className="btn btn-sm btn-info btn-add"> Add To Cart-E 
-                    <i className="fa fa-cart-plus"></i>
+                    <button onClick={this.handleAddToCart} className="btn btn-sm btn-info btn-add">
+                        Add To Cart-E 
+                        <i className="fa fa-cart-plus"></i>
                     </button>
                 </div>
             </div>
-         );
+      );
     }
+
+    handleAddToCart = () => {
+        // create object
+        let prod = {
+            ...this.props.data, // item information
+            quantity: this.state.quantity,
+        };
+
+
+        this.context.addProductToCart(prod);
+    };
 
 getTotal = () => {
     let total = this.state.quantity * this.props.data.price;
     return total.toFixed(2);
-}
+};
 
     handleQuantityChange = (quantity) => {
-        console.log("quantity changed", quantity);
-        this.setState({quantity: quantity})
+        this.setState({ quantity: quantity });
     };
 }
  

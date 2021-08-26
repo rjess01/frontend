@@ -1,0 +1,7 @@
+.kart-page .kart-container {
+    flex: 4;
+}
+
+.kart-page .total-container {
+    flex: 1;
+}
