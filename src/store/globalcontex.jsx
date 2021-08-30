@@ -22,8 +22,24 @@ class GlobalState extends Component {
 
   addProductToCart = (product) => {
     let currentCart = [...this.state.cart]; //hard copy array
-    currentCart.push(product);
+
+    let found = false; 
+    for (let i = 0; i < currentCart.length; i++) {
+      let item = currentCart[i];
+
+      if (item._id === product._id) {
+        item.quantity += product.quantity;
+        found = true
+      }
+    }
+
+    if (!found) {
+      currentCart.push(product);
+    }
+
     this.setState({ cart: currentCart });
+
+    console.log(currentCart);
   };
 
   removeProductFromCart = (productId) => {
@@ -38,17 +54,17 @@ class GlobalState extends Component {
     //this.setState({ kart:newKart });
 
     //opt 2 - removing from array
-    //for(let i=0; i< copt.lenght; i++) {
-    //    let item = copy[i];
+    for(let i=0; i< copt.lenght; i++) {
+        let item = copy[i];
 
-    //    if (itrm._id === productId) {
-    //       copy.splice(i,1);
-    //       break;
-    //    }
-    // }
-    //this.setState({ kart= Kopy });
+        if (item._id === productId) {
+           copy.splice(i,1);
+           break;
+        }
+     }
+    this.setState({ kart= Kopy });
 
-    let kopy = this.state.vart.filter((prod) => prod._id !== productId);
+    let kopy = this.state.cart.filter((prod) => prod._id !== productId);
     this.setState({ kart: kopy });
 
     console.log("TODO: remove Product");

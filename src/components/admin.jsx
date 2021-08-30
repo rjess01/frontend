@@ -42,7 +42,7 @@ class Admin extends Component {
             </div>
 
             <div className="my-control">
-                <lable>Image</lable>
+                <lable>Image name</lable>
                 <input type="text" name="image" value={this.state.image} onChange={this.handleInputChange} />
             </div>
 
@@ -61,7 +61,8 @@ class Admin extends Component {
                     Register 'Budd'
                 </button>
             </div>        
-        </div>);
+        </div>
+        );
     }
   
 
