@@ -33,20 +33,26 @@ var catalog = [
 
 class ItemService {
     
-    getCatalog() {
+    async getCatalog() {
       //  put logice to call server
       // and get an array of products
-    axios.get('http://127.0.0.1:5000/api/catalog')
+    let response = await axios.get('http://127.0.0.1:5000/api/catalog');
+    return response.data;
       // return mock data
-      return catalog;
+      //return catalog;
     }
 
-    saveItem(item) {
+    async saveItem(item) {
       console.log("ToDo: send object to server");
+
+     await axios.post("http://127.0.0.1:5000/api/catalog", item);
   }
 
-    getItemDetails(id) {
+    getItemDetails(id) {}
+  
+  
+  
   }
-}
+
 
 export default ItemService;

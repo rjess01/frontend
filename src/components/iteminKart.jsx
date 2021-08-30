@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import storeContext from "../store/storeContext";
+import storeContext from "../store/storecontext";
 import "./iteminKart.css";
 
 class IteminKart extends Component {
@@ -9,7 +9,6 @@ class IteminKart extends Component {
     return (
       <div className="item-in-Kart">
         <img src={"/images/products" + this.props.data.image} alt=""></img>
-
         <div className="item-info">
           <h6>{this.props.data.title}</h6>
           <lable>{this.props.data.category}</lable>
@@ -17,10 +16,10 @@ class IteminKart extends Component {
         <lable>${this.props.data.price}</lable>
         <lable>{this.props.data.quantity}</lable>
         <lable>{this.getTotal()}</lable>
-
         <button onClick={this.handleDelete} className=" btn btn-sm btn-danger">
           Remove
         </button>
+        nmkj
       </div>
     );
   }
